@@ -188,4 +188,26 @@ class BouncyArcLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BouncyArcLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val bal : BouncyArcLine = BouncyArcLine(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            bal.draw(canvas, paint)
+            animator.animate {
+                bal.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bal.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
