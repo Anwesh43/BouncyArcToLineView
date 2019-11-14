@@ -211,4 +211,13 @@ class BouncyArcLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BouncyArcLineView {
+            val view : BouncyArcLineView = BouncyArcLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
