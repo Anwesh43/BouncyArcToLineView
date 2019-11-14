@@ -52,6 +52,7 @@ fun Canvas.drawBALNode(i : Int, scale : Float, paint : Paint) {
     paint.color = foreColor
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     save()
     translate(gap * (i + 1), h / 2)
     drawBouncyArcLines(scale, size, paint)
